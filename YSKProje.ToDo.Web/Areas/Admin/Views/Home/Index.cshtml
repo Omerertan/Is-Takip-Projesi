@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row my-2">
+    <div class="col-md-6 ">
+        <a asp-controller="IsEmri" asp-action="Index" class="card text-white bg-primary text-center text-decoration-none">
+            <div class="card-body">
+                <h4 class="card-title">Atanmayı Bekleyen Görev Sayısı</h4>
+                <p class="card-text display-4">@ViewBag.atanmayıBekleyenGorevSayisi</p>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-6 text-decoration-none">
+        <div class="card text-white bg-primary text-center ">
+            <div class="card-body">
+                <h4 class="card-title">Tamamlanan Görev Sayısı</h4>
+                <p class="card-text display-4">@ViewBag.tamamlanmısGorevSayisi</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row my-2">
+    <div class="col-md-6 ">
+        <a asp-controller="Bildirim" asp-action="Index" class="card text-white bg-primary text-center text-decoration-none">
+            <div class="card-body">
+                <h4 class="card-title">Okunmamış Bildirim Sayısı</h4>
+                <p class="card-text display-4">@ViewBag.okunmamısBildirimSayisi</p>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-6 text-decoration-none">
+        <a asp-controller="IsEmri" asp-action="Index" class="card text-white bg-primary text-center text-decoration-none">
+            <div class="card-body">
+                <h4 class="card-title">Tüm Rapor Sayısı</h4>
+                <p class="card-text display-4">@ViewBag.tumRaporSayisi</p>
+            </div>
+        </a>
+    </div>
+</div>
+

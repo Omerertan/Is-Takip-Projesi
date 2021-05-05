@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Member/Views/Shared/_MemberLayout.cshtml";
+}
+
+<div class="row my-2">
+    <div class="col-md-6 ">
+        <a asp-controller="Gorev" asp-action="Index" class="card text-white bg-primary text-center text-decoration-none">
+            <div class="card-body">
+                <h4 class="card-title">Rapor Sayısı</h4>
+                <p class="card-text display-4">@ViewBag.RaporSayisi</p>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-6 ">
+        <a asp-controller="Gorev" asp-action="Index" class="card text-white bg-primary text-center text-decoration-none">
+            <div class="card-body">
+                <h4 class="card-title">Tamamlanan Görev Sayısı</h4>
+                <p class="card-text display-4">@ViewBag.TamamamlananGorevSayisi</p>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="row my-2">
+    <div class="col-md-6 ">
+        <a asp-controller="IsEmri" asp-action="Index" class="card text-white bg-primary text-center text-decoration-none">
+            <div class="card-body">
+                <h4 class="card-title">Mevcut Görev Sayısı</h4>
+                <p class="card-text display-4">@ViewBag.MevcutGorevSayisi</p>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-6 ">
+        <a asp-controller="Bildirim" asp-action="Index" class="card text-white bg-primary text-center text-decoration-none ">
+            <div class="card-body">
+                <h4 class="card-title">Okunmayan Bildirim Sayısı</h4>
+                <p class="card-text display-4">@ViewBag.TamamlanmayanGorevSayisi </p>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,71 @@
+﻿@model AppUserListDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+       @TempData["message"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+<form asp-action="Index" method="post" enctype="multipart/form-data" class="w-75 mx-auto p-3">
+    <input type="hidden" asp-for="@Model.Id" />
+    <div class="form-group">
+        <label asp-for="@Model.Name" class="">Ad :</label>
+        <span asp-validation-for="@Model.Name" class="text-danger"></span>
+        <input asp-for="@Model.Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.SurName" class="">Soyad :</label>
+        <span asp-validation-for="@Model.SurName" class="text-danger"></span>
+        <input asp-for="@Model.SurName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Email" class=" ">Email :</label>
+        <span asp-validation-for="@Model.Email" class="text-danger"></span>
+        <input asp-for="@Model.Email" class="form-control" />
+    </div>
+    <div class="form-group mt-2">
+        <div class="row">
+            <div class="col-md-4">
+                <div>
+                    <h5 class="text-center">Şu anki resminiz</h5>
+                    <img src="~/img/@Model.Picture" alt="@Model.Name" class="rounded mx-auto d-block w-75" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div id="alanOnizleme" style="display: none">
+                    <h5 class="text-center">Seçtiğiniz resim: </h5>
+                    <img id="resimOnizleme" src="~/img/@Model.Picture" alt="@Model.Name" class="rounded mx-auto d-block w-75" />
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label>Resim Seç : </label>
+                <input type="file" id="Resim" name="resim" class="form-control-file" />
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-sm btn-info mt-2">
+        <i class="fas fa-check mr-1"></i> Kaydet
+    </button>
+</form>
+
+@section Javascript {
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#Resim").change(function (e) {
+
+                $("#alanOnizleme").show();
+                $("#resimOnizleme").attr("src", URL.createObjectURL(e.target.files[0]))
+            });
+        });
+    </script>
+}
